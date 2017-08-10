@@ -1,0 +1,10 @@
+---
+- hosts: dbvisit
+  remote_user: juan
+  tasks:
+  - name: copy replicate RPM
+    copy: 
+      src: /home/juan/Downloads/SW/RPM/dbvisit_replicate-2.9.00-el5.x86_64.rpm
+      dest: /home/juan/Downloads/
+      owner: root
+      mode: 0775

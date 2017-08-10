@@ -1,0 +1,25 @@
+---
+- hosts: dbvisit
+  tasks:
+  - name: Create target directory
+    file:
+      path: /home//juan/Downloads
+      state: directory
+  - name: Copy replicate RPM
+    copy: 
+      src: /home/juan/Downloads/SW/RPM/dbvisit_replicate-2.9.00-el5.x86_64.rpm
+      dest: /home/juan/Downloads/
+  - name: Install dbvreplicate
+    yum:
+      name: /home/juan/Downloads/dbvisit_replicate-2.9.00-el5.x86_64.rpm
+      state: present
+- hosts: dbvapply
+  tasks:
+  - name: Installs python3
+    yum:
+      name: python34 
+      state: present
+  - name: Configure Apply
+    expect:
+      chdir: cd /usr/dbvisit/replicate
+      command: dbvrep

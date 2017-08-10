@@ -1,0 +1,6 @@
+---
+- include: swap.yml
+- include: python2.yml
+- include: extras.yml
+- include: copyora.yml
+- include: startora.yml

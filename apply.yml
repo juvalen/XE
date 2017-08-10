@@ -1,0 +1,17 @@
+---
+- hosts: dbvapply
+  tasks:
+  - name: Creates directory
+    file:
+      path=/root/Downloads
+      state=directory
+  - name: Copies DBV Replicate
+    copy:
+      src=~/Downloads/SW/RPM/dbvisit_replicate-2.9.00-el5.x86_64.rpm
+      dest=Downloads/dbvisit_replicate-2.9.00-el5.x86_64.rpm
+  - name: Installs package
+    yum:
+      name: Downloads/dbvisit_replicate-2.9.00-el5.x86_64.rpm
+      state: present
+...
+

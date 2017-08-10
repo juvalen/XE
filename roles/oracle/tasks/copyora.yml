@@ -1,0 +1,14 @@
+---
+# Copy & unzip Oracle XE
+- name: Copy oracle.zip
+  copy:
+    src: oracle-xe-11.2.0-1.0.x86_64.rpm.zip
+    dest: /home/vagrant
+- name: Unzip Oracle
+  command: unzip /home/vagrant/oracle-xe-11.2.0-1.0.x86_64.rpm.zip
+  args:
+    creates: /home/vagrant/Disk1/oracle-xe-11.2.0-1.0.x86_64.rpm
+- name: Install RPM
+  yum:
+    name: /home/vagrant/Disk1/oracle-xe-11.2.0-1.0.x86_64.rpm
+    state: present

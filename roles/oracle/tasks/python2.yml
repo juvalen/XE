@@ -1,0 +1,16 @@
+---
+- name: Install python 2
+  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal python-rpm)
+- name: Install epel
+  package:
+    name: epel-release
+    state: present
+#- name: Upgrade all packages
+#  package: name=* state=latest
+- name: Install pip
+  package:
+    name: python-pip
+    state: present
+- name: Install pexpect
+  pip:
+    name: pexpect

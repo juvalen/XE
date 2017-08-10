@@ -1,0 +1,18 @@
+---
+# Create a 2GB /swapfile
+- name: Create /swapfile 2GB
+  command: "{{ item }}"
+  with_items:
+   - dd if=/dev/zero of=/swapfile bs=1024 count=2097152
+   - chmod 600 /swapfile
+   - mkswap /swapfile
+   - swapon /swapfile
+  become: true
+
+- name: Add /swapfile to fstab
+  lineinfile:
+    dest: /etc/fstab
+    line: '/swapfile swap swap defaults 0 0'
+    regexp: '\/swapfile'
+  become: true
+

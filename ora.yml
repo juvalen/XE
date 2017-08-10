@@ -1,0 +1,7 @@
+---
+# Role oracle installs & runs Oracle XE
+- hosts: all
+  become: yes
+  become_method: sudo
+  roles:
+  - oracle

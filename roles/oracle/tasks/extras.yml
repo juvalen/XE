@@ -1,0 +1,9 @@
+---
+- name: Install bc, unzip, libaio, glibc, net-tools
+  package: pkg={{item}} state=present
+  with_items:
+    - bc
+    - unzip
+    - libaio
+    - glibc
+    - net-tools

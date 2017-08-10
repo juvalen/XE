@@ -1,0 +1,14 @@
+---
+# startora.yml: Start Oracle XE
+- name: Start Oracle XE
+  expect:
+    command: "/etc/init.d/oracle-xe configure"
+    responses:
+      'Specify the HTTP port that will be used for Oracle Application Express \[8080\]': '8080'
+      'Specify a port that will be used for the database listener \[1521\]': '1521'
+#      'Specify a password to be used for database accounts.  Note that the same password will be used for SYS and SYSTEM.  Oracle recommends the use of different passwords for each database account.  This can be done after 
+      'initial configuration': 'oracl3'
+      'Confirm the password': 'oracl3'
+      'Do you want Oracle Database 11g Express Edition to be started on boot \(y/n\) \[y\]': 'y'
+    echo: yes
+  become: true
