@@ -1,3 +1,3 @@
 # XE
-Install Oracle XE on Vagrant box with Ansible provider
+Installs Oracle XE on Vagrant box with Ansible provider
 

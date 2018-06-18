@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
   config.vm.hostname = 'dbvmine'
-# vagrant name in status
+# add vagrant name to status
   config.vm.define :dbvmine do |t|
   end
 # Ansible
